@@ -1,6 +1,15 @@
 <template>
   <NavHeader />
   <div class="container mt-5">
+    <div class="d-flex justify-content-center align-items-center mb-5">
+        <div class="display-1 fw-bolder d-inline align-middle m-0 p-0">
+            <span class="text-bg-primary ps-3 rounded-start-3">PRO</span><span class="text-bg-secondary pe-3 rounded-end-3">JECT</span>
+            <!-- <span class="text-primary">PRO</span><span class="text-secondary">JECT</span> -->
+        </div>
+        <div class="img-box ms-2">
+            <img class="img-fluid" :src="imgStartUrl + '/img/logo.png'" alt="logo">
+        </div>
+    </div>
     <div class="row row-gap-4">
       <CardUnit v-for="(project, index) in projects" :key="index" :project="project" />
       <nav aria-label="Page navigation example">
