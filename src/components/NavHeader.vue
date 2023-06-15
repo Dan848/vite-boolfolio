@@ -10,10 +10,10 @@
           </button>
             <!-- Navbar Links-->
             <div class="collapse navbar-collapse justify-content-end" id="collapseHeader">    
-                <ul class="navbar-nav container ms-auto ms-md-0 me-3 me-lg-4">
+                <ul class="fw-medium navbar-nav container ms-auto ms-md-0 me-3 me-lg-4">
                     <!-- Links -->
                     <li v-for="link in store.headerLinks" class="nav-item">
-                        <router-link :to="{ name: link.routeName }" class="nav-link active hover-invert">{{ link.text }}</router-link>
+                        <router-link :to="{ name: link.routeName }" class="nav-link hover-invert" active-class="active">{{ link.text }}</router-link>
                     </li>
                 </ul>
             </div>

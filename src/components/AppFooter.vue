@@ -2,7 +2,7 @@
     <footer class="py-4 bg-light mt-auto">
         <div class="container-fluid px-4">
             <div class="d-flex align-items-center justify-content-between small">
-                <div class="text-white">Copyright &copy; Project D</div>
+                <div>Copyright &copy; Project D</div>
                 <div>
                     <a class="text-secondary" href="#">Privacy Policy</a>
                     &middot;

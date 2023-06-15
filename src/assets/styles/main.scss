@@ -11,9 +11,13 @@ $fa-font-path: '../webfonts';
 
 @import 'bootstrap/scss/bootstrap';
 
-//Animation
+//ANIMATION
 .breathing{
     animation: breathing 3s infinite;
+}
+
+.animation-scale-hover{
+    animation: scaleHover 2s infinite ease-in-out;
 }
 
 @keyframes breathing {
@@ -30,16 +34,23 @@ $fa-font-path: '../webfonts';
 
 @keyframes scaleHover {
     0% {
-        transform: scale(1.1);
+        transform: scale(1);
       }
       50% {
         transform: scale(0.9);
       }
       100% {
-        transform: scale(1.1);
+        transform: scale(1);
       }
 }
 
+@keyframes removeAnimation {
+    to {
+      animation: none;
+    }
+}
+
+//ANIMATION /
 
 //GENERAL
 body{
