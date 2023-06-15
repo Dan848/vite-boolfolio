@@ -1,8 +1,7 @@
 <template>
 <div class="container mt-5 mb-3">
-
-    <h1 class="mb-0 text-center"> {{store.project.name}} </h1>
     <div class="d-flex justify-content-end align-items-center mb-4">
+        <h1 class="mb-0  mx-auto text-center"> {{store.project.name}} </h1>
         <div class="img-box logo">
             <img class="img-fluid" :src="store.imgStartUrl + store.project.technology.image" :alt="store.project.technology.name">
         </div>
