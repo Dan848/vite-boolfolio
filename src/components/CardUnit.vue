@@ -21,11 +21,13 @@
 
 <script>
 export default {
-    name: 'CardUnit',
-    props: ['project'],
+    name: "CardUnit",
+    props: {
+        project: String,
+        imgStartUrl: String,
+    },
     data() {
         return {
-        imgStartUrl: 'http://localhost:8000',
         }
     }
 }

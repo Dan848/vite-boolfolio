@@ -1,68 +1,29 @@
 <template>
   <NavHeader />
-  <div class="container mt-5">
-    <div class="d-flex justify-content-center align-items-center mb-5">
-        <div class="display-1 fw-bolder d-inline align-middle m-0 p-0">
-            <span class="text-bg-primary ps-3 rounded-start-3">PRO</span><span class="text-bg-secondary pe-3 rounded-end-3">JECT</span>
-            <!-- <span class="text-primary">PRO</span><span class="text-secondary">JECT</span> -->
-        </div>
-        <div class="img-box ms-2">
-            <img class="img-fluid" :src="imgStartUrl + '/img/logo.png'" alt="logo">
-        </div>
-    </div>
-    <div class="row row-gap-4">
-      <CardUnit v-for="(project, index) in projects" :key="index" :project="project" />
-      <nav aria-label="Page navigation example">
-        <ul class="pagination">
-          <li class="page-item"><button :class="{ 'page-link': true, 'disabled': currentPage === 1 }"
-              @click="getProjects(currentPage - 1)">&laquo;</button></li>
-          <li class="page-item" v-for="n in lastPage"><button :class="{ 'page-link': true, 'active': currentPage === n }"
-              @click="getProjects(n)">{{ n }}</button>
-          </li>
-
-          <li class="page-item"><button :class="{ 'page-link': true, 'disabled': currentPage === lastPage }"
-              @click="getProjects(currentPage + 1)">&raquo;</button></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
+  <router-view></router-view>
+  <AppFooter />
 </template>
 
 <script>
-import axios from 'axios';
+import { store } from "./data/store"
 import NavHeader from './components/NavHeader.vue'
-import CardUnit from './components/CardUnit.vue';
+import TitleMaxi from "./components/TitleMaxi.vue";
+import CardList from "./components/CardList.vue";
+import AppFooter from "./components/AppFooter.vue";
 export default {
 name: 'App',
 components: {
-  NavHeader,
-  CardUnit,
-  },
+    NavHeader,
+    TitleMaxi,
+    CardList,
+    AppFooter,
+    AppFooter
+},
   data() {
     return {
-      imgStartUrl: 'http://localhost:8000',
-      apiUrl: 'http://127.0.0.1:8000/api',
-      projects: [],
-      currentPage: 1,
-      lastPage: null
+      store
     }
   },
-  methods: {
-    getProjects(numPage) {
-      axios.get(`${this.apiUrl}/projects`, {
-        params: {
-          'page': numPage
-        }
-      }).then((res) => {
-        this.projects = res.data.results.data;
-        this.currentPage = res.data.results.current_page;
-        this.lastPage = res.data.results.last_page;
-      })
-    }
-  },
-  mounted() {
-    this.getProjects(1);
-  }
 }
 </script>
 
